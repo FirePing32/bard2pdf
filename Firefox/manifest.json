@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Save to Drive",
+  "name": "Save To Drive",
   "description": "Save files from Google classroom to Drive",
   "version": "1.0.0",
   "browser_specific_settings": {
