@@ -4,8 +4,10 @@
   "description": "Save files from Google classroom to Drive",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAilN/TfLlMmmMHSUBtNodrzw9Nih+QjvwicqyOGJD/B1Wv4MnjlOVg33nF/1hB0ybbuvzinBf7aC6zKTLCLP77Vw7wM31SEat34tPlGykTobs2w8ECH8/OegveFg4/3GsBp4t7+85KFLDJIfwdg9OKx1Mk5n9r9uzkiZgIB6DgPMPijWyYI6LnCqPXqSsbmwbroIPstTY9TQIiiZTG+FIxJW5Gj85h6oWuqDVt2twJll48quJdS+rpNQRrsvHrqXZkdORPgOhJOmsvTVnIOuGHect9XV2elcBYMlVUo2IFTszQSY1R2yrLLnw+E6Xd4c+JbdJCjQeIjMBrvm2xHBztwIDAQAB",
   "oauth2": {
-      "client_id": "60154600471-c09dnivch9e90n557lvlv7n6qnrgr814.apps.googleusercontent.com",
-      "scopes": [""]
+      "client_id": "607456096209-2duc6ao7k05jab8uunie2opkicao37ms.apps.googleusercontent.com",
+      "scopes": ["https://www.googleapis.com/auth/userinfo.email",
+                "https://www.googleapis.com/auth/userinfo.profile",
+                "https://www.googleapis.com/auth/drive.file"]
   },
   "version": "1.0.0",
   "permissions": [
