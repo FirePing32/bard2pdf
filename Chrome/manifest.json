@@ -1,28 +1,21 @@
 {
-  "manifest_version": 3,
-  "name": "Save To Drive",
-  "description": "Save files from Google classroom to Drive",
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAilN/TfLlMmmMHSUBtNodrzw9Nih+QjvwicqyOGJD/B1Wv4MnjlOVg33nF/1hB0ybbuvzinBf7aC6zKTLCLP77Vw7wM31SEat34tPlGykTobs2w8ECH8/OegveFg4/3GsBp4t7+85KFLDJIfwdg9OKx1Mk5n9r9uzkiZgIB6DgPMPijWyYI6LnCqPXqSsbmwbroIPstTY9TQIiiZTG+FIxJW5Gj85h6oWuqDVt2twJll48quJdS+rpNQRrsvHrqXZkdORPgOhJOmsvTVnIOuGHect9XV2elcBYMlVUo2IFTszQSY1R2yrLLnw+E6Xd4c+JbdJCjQeIjMBrvm2xHBztwIDAQAB",
-  "oauth2": {
-      "client_id": "607456096209-2duc6ao7k05jab8uunie2opkicao37ms.apps.googleusercontent.com",
-      "scopes": ["https://www.googleapis.com/auth/userinfo.email",
-                "https://www.googleapis.com/auth/userinfo.profile",
-                "https://www.googleapis.com/auth/drive.file"]
-  },
-  "version": "1.0.0",
-  "permissions": [
-    "identity"
-  ],
-  "host_permissions": ["https://classroom.google.com/*"],
-  "icons": {
-      "16": "icons/icon-16x16.png",
-      "48": "icons/icon-48x48.png",
-      "128": "icons/icon-128x128.png"
-  },
-  "action": {
-      "default_popup": "html/index.html"
-  },
-  "background": {
-      "service_worker": "js/background.js"
-  }
+    "manifest_version": 3,
+    "name": "Bard2PDF",
+    "description": "Save Bard response as PDF",
+    "version": "1.0.0",
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmHnu393gJHMFdrtAWiOOZKxsPnyxJCWPGCPonD81WO8N8JpTcPyTydQkPhqTN53DL81QdIPNQCsg8s9ZtZNKaNGgdDGdMLUXOLuhg5PmNkoV7SHjWcWjc8PByqpaQeBRi0r9tXrQeZUmXUhhJZoQP7X1CSOW8VTLHvqaR/untaI7dsexaeD0uUOtrmdKAy347VuI0aeeSQ4Pl5cZxP3WuUpjmlL6QyX8kL2le38naojL8xgPoPON/2OMz8Fyd0PEHnx7qbcMYyzT6dr984yrMPvMUnm733UKnOjsf8Ne353cGEhte2JmOFKi13CVobc9iSWWohqg84OO8LbewyUDDQIDAQAB",
+    "host_permissions": ["https://bard.google.com/*"],
+    "permissions": ["activeTab"],
+    "icons": {
+        "16": "icons/16x16.png",
+        "48": "icons/48x48.png",
+        "128": "icons/128x128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://bard.google.com/*"],
+            "all_frames": true,
+            "js": ["js/content-script.bard2pdf.js"]
+        }
+    ]
 }
