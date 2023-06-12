@@ -9,11 +9,21 @@ const observer = new MutationObserver(function(mutationsList) {
 					var downloadButton = document.createElement("button")
 					downloadButton.innerHTML = "Download";
 
-					var buttonClasses = "mat-mdc-tooltip-trigger stroked-icon-button mdc-button mdc-button--outlined mat-mdc-outlined-button gmat-mdc-button-with-prefix mat-unthemed mat-mdc-button-base gmat-mdc-button ng-star-inserted".split(" ")
-					downloadButton.classList.add(...buttonClasses)
+					var buttonProps = document.querySelector('[mattooltip="Related searches"]')
+					var attrs = buttonProps.attributes
+					var restrictedAttrs = ["aria-label", "mattooltip"]
 
+					for (var i=0; i < attrs.length; i++) {
+						if (!(restrictedAttrs.includes(attrs[i]))) {
+							try {
+								downloadButton.setAttribute(attrs[i].name, attrs[i].value)
+							}
+							catch (e) {
+								console.log(`${attrs[i]} ${e}`)
+							}
+						}
+					}
 					addedNode.appendChild(downloadButton);
-
 				}
 			}
 		});
