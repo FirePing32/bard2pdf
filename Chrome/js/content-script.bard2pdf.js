@@ -1,11 +1,19 @@
 "use strict";
 
-const observer = new MutationObserver(function(mutations_list) {
-	mutations_list.forEach(function(mutation) {
-		mutation.addedNodes.forEach(function(added_node) {
-			if (Array(added_node.classList).length > 0 && added_node.classList !== undefined) {
-				if(added_node.classList.contains('buttons-container')) {
-					console.log(added_node);
+const observer = new MutationObserver(function(mutationsList) {
+	mutationsList.forEach(function(mutation) {
+		mutation.addedNodes.forEach(function(addedNode) {
+			if (Array(addedNode.classList).length > 0 && addedNode.classList !== undefined) {
+				if(addedNode.classList.contains('buttons-container')) {
+
+					var downloadButton = document.createElement("button")
+					downloadButton.innerHTML = "Download";
+
+					var buttonClasses = "mat-mdc-tooltip-trigger stroked-icon-button mdc-button mdc-button--outlined mat-mdc-outlined-button gmat-mdc-button-with-prefix mat-unthemed mat-mdc-button-base gmat-mdc-button ng-star-inserted".split(" ")
+					downloadButton.classList.add(...buttonClasses)
+
+					addedNode.appendChild(downloadButton);
+
 				}
 			}
 		});
@@ -13,7 +21,7 @@ const observer = new MutationObserver(function(mutations_list) {
 });
 
 var chatHistoryContainer = undefined
-// content script was failing to find DOM elements in some cases even after complete page load, so this is a safety check
+// content script was failing to find DOM elements in some cases even after full paint, so this is a safety check
 const findChatContainer = () => {
 	var findContainer = setInterval(() => {
 		if (chatHistoryContainer !== undefined){
@@ -24,8 +32,6 @@ const findChatContainer = () => {
 	}, 500)
 }
 
-window.addEventListener("load", function(){
-	findChatContainer()
-}, true)
+window.addEventListener("load", findChatContainer, true)
 
 
