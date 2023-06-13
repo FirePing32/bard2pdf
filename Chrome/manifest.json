@@ -17,5 +17,11 @@
             "all_frames": true,
             "js": ["js/content-script.bard2pdf.js"]
         }
+    ],
+    "web_accessible_resources": [
+        {
+            "matches": ["https://bard.google.com/*"],
+            "resources": ["js/*"]
+        }
     ]
 }
