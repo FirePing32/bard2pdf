@@ -15,7 +15,7 @@
         {
             "matches": ["https://bard.google.com/*"],
             "all_frames": true,
-            "js": ["js/content-script.bard2pdf.js"]
+            "js": ["js/content-script.js"]
         }
     ],
     "web_accessible_resources": [

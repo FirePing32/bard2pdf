@@ -2,9 +2,9 @@ const path = require("path");
 
 module.exports = (env) => {
     return {
-        mode: "production",
+        mode: "none",
         entry: {
-            "./chrome/bard2pdf.min": "./src/chrome/js/content-main.bard2pdf.js",
+            "./chrome/content-main": "./src/chrome/js/content-main.js",
         },
         output: {
             path: __dirname + "/dist",

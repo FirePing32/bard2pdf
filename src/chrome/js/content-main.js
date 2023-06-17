@@ -1,5 +1,5 @@
 "use strict";
-import { downloadPDF } from "./download.bard2pdf.js";
+import { downloadPDF } from "./download.js";
 
 const observer = new MutationObserver(function(mutationsList) {
 	mutationsList.forEach(function(mutation) {

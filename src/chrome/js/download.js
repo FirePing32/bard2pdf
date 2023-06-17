@@ -1,20 +1,20 @@
 "use strict";
-import { jsPDF } from "./../node_modules/jspdf/dist/jspdf.es.js";
+import { jsPDF } from "jspdf";
 
 const downloadPDF = (event) => {
     let buttonContainer = event.target
     let messageContent = buttonContainer.parentNode.parentNode.parentNode.parentNode.parentNode
 
     var doc = new jsPDF();
-    // doc.html(
-    // messageContent,
-    // 15,
-    // 15,
-    // {
-    //   'width': 180
-    // });
+    doc.html(
+    messageContent,
+    15,
+    15,
+    {
+      'width': 180
+    });
 
-    // doc.output("dataurlnewwindow");
+    doc.output("dataurlnewwindow");
 
 }
 
