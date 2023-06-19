@@ -19,7 +19,7 @@ function chromeBuild() {
     var config = buildConfig();
     var isProduction = argv.prod === undefined ? false : true;
     config["mode"] = isProduction ? "production" : "development";
-    config["entry"] = { "content-main.js": "./src/chrome/js/content-main.js" };
+    config["entry"] = { "content-main": "./src/chrome/js/content-main.js" };
 
     return webpack(config).pipe(gulp.dest("dist/chrome/"));
 }
@@ -30,8 +30,8 @@ function chromeExport() {
 
     return gulp
         .src([
-            "!./src/chrome/js/content-main.js",
             "./src/chrome/js/*",
+            "!./src/chrome/js/content-main.js",
             "./dist/chrome/*.js",
         ])
         .pipe(gulp.dest("./bin/chrome/js"));
