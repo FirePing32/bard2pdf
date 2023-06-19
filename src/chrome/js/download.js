@@ -6,12 +6,10 @@ const downloadPDF = (event) => {
     let messageContent = buttonContainer.parentNode.parentNode.parentNode.parentNode.parentNode
 
     var doc = new jsPDF();
-    doc.html(
-    messageContent,
-    15,
-    15,
-    {
-      'width': 180
+    doc.html(messageContent, {
+        callback: function (pdf) {
+            pdf.save("DOC.pdf");
+        },
     });
 
     doc.output("dataurlnewwindow");

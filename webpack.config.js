@@ -3,10 +3,8 @@ const path = require("path");
 module.exports = (env) => {
     return {
         mode: "none",
-        entry: {
-            "./chrome/content-main": "./src/chrome/js/content-main.js",
-        },
         output: {
+            publicPath: "",
             path: __dirname + "/dist",
             filename: "[name].js",
         },
