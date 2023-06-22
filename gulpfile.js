@@ -7,12 +7,12 @@ const fs = require("fs");
 
 function chromeClean() {
     if (fs.existsSync("./bin")) {
-        return gulp.src("./bin", { read: false }).pipe(clean());
-    } else if (fs.existsSync("./dist")) {
-        return gulp.src("./dist", { read: false }).pipe(clean());
-    } else {
-        return gulp.src(".", { allowEmpty: true });
+        gulp.src("./bin", { read: false }).pipe(clean());
     }
+    if (fs.existsSync("./dist")) {
+        gulp.src("./dist", { read: false }).pipe(clean());
+    }
+    return gulp.src(".", { allowEmpty: true });
 }
 
 function chromeBuild() {
