@@ -11,9 +11,6 @@ const downloadPDF = (event) => {
             pdf.save("DOC.pdf");
         },
     });
-
-    doc.output("dataurlnewwindow");
-
 }
 
 export {downloadPDF};
