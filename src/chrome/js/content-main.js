@@ -9,8 +9,8 @@ const observer = new MutationObserver(function (mutationsList) {
                 addedNode.classList !== undefined
             ) {
                 if (
-                    addedNode.nodeName == "SCRIPT" ||
-                    addedNode.nodeName == "LINK"
+                    addedNode.nodeName.toUpperCase() == "SCRIPT" ||
+                    addedNode.nodeName.toUpperCase() == "LINK"
                 ) {
                     addedNode.setAttribute("data-html2canvas-ignore", "true");
                 }
