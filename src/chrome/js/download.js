@@ -6,13 +6,18 @@ const downloadPDF = (event) => {
     let parentNode = buttonContainer.parentNode.parentNode.parentNode.parentNode.parentNode
     let messageContent = parentNode.querySelector(".model-response-text");
 
-    // Fix text color
-    // Fetch query name from DOM
+    // Fix script load
     var doc = new jsPDF();
     doc.html(messageContent, {
         callback: function (pdf) {
-            pdf.save("bard2pdf.pdf");
+            pdf.output("dataurlnewwindow");
         },
+        html2canvas: {onclone: (clonedDoc) => {
+            const style = clonedDoc.createElement("style");
+            style.innerHTML =
+                "* { color: #000000 !important; }";
+            clonedDoc.body.appendChild(style);
+        }},
         margin: [10, 10, 10, 10],
         autoPaging: "text",
         x: 15,
