@@ -16,35 +16,37 @@ const downloadPDF = (event) => {
             onclone: (clonedDoc) => {
                 let sources = clonedDoc.querySelectorAll("a.source");
                 sources.forEach((source) => {
-                    source.remove()
-                })
+                    source.remove();
+                });
 
                 // Fix content wrapping
                 //
-                // let images = clonedDoc.querySelectorAll("img")
-                // images.forEach((img) => {
-                //     img.onerror = "this.onerror = null;";
-                // })
+                let images = clonedDoc.querySelectorAll("img");
+                images.forEach((img) => {
+                    if (img.naturalHeight == 0) {
+                        img.remove()
+                    }
+                });
 
-                var rmCaptions = clonedDoc.querySelectorAll(".caption")
-                if (rmCaptions !== null) {
-                    rmCaptions.forEach((caption) => {
-                        caption.remove()
-                    })
-                }
+                var rmCaptions = clonedDoc.querySelectorAll(".caption");
+                rmCaptions.forEach((caption) => {
+                    caption.remove();
+                });
 
                 var rmExportSheet = clonedDoc.querySelectorAll(
                     ".export-sheets-button-wrapper"
                 );
                 if (rmExportSheet !== null) {
-                    rmExportSheet.forEach((button) => {button.remove()})
+                    rmExportSheet.forEach((button) => {
+                        button.remove();
+                    });
                 }
 
                 const style = clonedDoc.createElement("style");
                 style.innerHTML =
                     "*:not(th) { color: #000000 !important; } img.image { width: unset !important; }";
                 clonedDoc.body.appendChild(style);
-            }
+            },
         },
         margin: [10, 10, 10, 10],
         autoPaging: "text",
