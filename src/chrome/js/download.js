@@ -14,9 +14,35 @@ const downloadPDF = (event) => {
         },
         html2canvas: {
             onclone: (clonedDoc) => {
+                let sources = clonedDoc.querySelectorAll("a.source");
+                sources.forEach((source) => {
+                    source.remove()
+                })
+
+                // Fix content wrapping
+                //
+                // let images = clonedDoc.querySelectorAll("img")
+                // images.forEach((img) => {
+                //     img.onerror = "this.onerror = null;";
+                // })
+
+                var rmCaptions = clonedDoc.querySelectorAll(".caption")
+                if (rmCaptions !== null) {
+                    rmCaptions.forEach((caption) => {
+                        caption.remove()
+                    })
+                }
+
+                var rmExportSheet = clonedDoc.querySelectorAll(
+                    ".export-sheets-button-wrapper"
+                );
+                if (rmExportSheet !== null) {
+                    rmExportSheet.forEach((button) => {button.remove()})
+                }
+
                 const style = clonedDoc.createElement("style");
                 style.innerHTML =
-                    "* { color: #000000 !important; }";
+                    "*:not(th) { color: #000000 !important; } img.image { width: unset !important; }";
                 clonedDoc.body.appendChild(style);
             }
         },

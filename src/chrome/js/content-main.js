@@ -37,7 +37,10 @@ const observer = new MutationObserver(function (mutationsList) {
                         }
                     }
 
-                    downloadButton.setAttribute("action", "bard2pdf.download");
+                    downloadButton.setAttribute(
+                        "action",
+                        "bard2pdf.download"
+                    );
                     downloadButton.addEventListener("click", downloadPDF),
                         addedNode.appendChild(downloadButton);
                 }
