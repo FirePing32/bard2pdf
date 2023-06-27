@@ -19,6 +19,9 @@ function chromeBuild() {
     var config = buildConfig();
     var isProduction = argv.prod === undefined ? false : true;
     config["mode"] = isProduction ? "production" : "development";
+    if (!isProduction) {
+        config["devtool"] = "cheap-module-source-map";
+    }
     config["entry"] = { "content-main": "./src/chrome/js/content-main.js" };
 
     return webpack(config).pipe(gulp.dest("dist/chrome/"));
