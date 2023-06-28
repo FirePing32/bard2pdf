@@ -3,8 +3,8 @@ import { jsPDF } from "jspdf";
 
 const downloadPDF = (event) => {
     let buttonContainer = event.target;
-    // buttonContainer.disabled = true;
-    // buttonContainer.value = "Generating"
+    buttonContainer.setAttribute("disabled", true);
+    buttonContainer.innerText = "Generating";
     let parentNode =
         buttonContainer.parentNode.parentNode.parentNode.parentNode.parentNode;
     let messageContent = parentNode.querySelector(".model-response-text");
@@ -13,8 +13,8 @@ const downloadPDF = (event) => {
     doc.html(messageContent, {
         callback: function (pdf) {
             pdf.output("dataurlnewwindow");
-            // buttonContainer.value = "Download";
-            // buttonContainer.disabled = false;
+            buttonContainer.innerText = "Download";
+            buttonContainer.removeAttribute("disabled");
         },
         html2canvas: {
             onclone: (clonedDoc) => {
@@ -23,8 +23,6 @@ const downloadPDF = (event) => {
                     source.remove();
                 });
 
-                // Fix content wrapping
-                //
                 let images = clonedDoc.querySelectorAll("img");
                 images.forEach((img) => {
                     if (img.naturalHeight == 0) {
