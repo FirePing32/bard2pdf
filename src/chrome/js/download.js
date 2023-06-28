@@ -3,6 +3,8 @@ import { jsPDF } from "jspdf";
 
 const downloadPDF = (event) => {
     let buttonContainer = event.target;
+    // buttonContainer.disabled = true;
+    // buttonContainer.value = "Generating"
     let parentNode =
         buttonContainer.parentNode.parentNode.parentNode.parentNode.parentNode;
     let messageContent = parentNode.querySelector(".model-response-text");
@@ -11,6 +13,8 @@ const downloadPDF = (event) => {
     doc.html(messageContent, {
         callback: function (pdf) {
             pdf.output("dataurlnewwindow");
+            // buttonContainer.value = "Download";
+            // buttonContainer.disabled = false;
         },
         html2canvas: {
             onclone: (clonedDoc) => {
@@ -24,16 +28,23 @@ const downloadPDF = (event) => {
                 let images = clonedDoc.querySelectorAll("img");
                 images.forEach((img) => {
                     if (img.naturalHeight == 0) {
-                        img.remove()
+                        img.remove();
                     }
                 });
 
-                var rmCaptions = clonedDoc.querySelectorAll(".caption");
+                let codeBlocksInfo = clonedDoc.querySelectorAll(
+                    ".code-block-decoration.footer"
+                );
+                codeBlocksInfo.forEach((block) => {
+                    block.remove()
+                })
+
+                let rmCaptions = clonedDoc.querySelectorAll(".caption");
                 rmCaptions.forEach((caption) => {
                     caption.remove();
                 });
 
-                var rmExportSheet = clonedDoc.querySelectorAll(
+                let rmExportSheet = clonedDoc.querySelectorAll(
                     ".export-sheets-button-wrapper"
                 );
                 if (rmExportSheet !== null) {
@@ -42,11 +53,20 @@ const downloadPDF = (event) => {
                     });
                 }
 
+                if (clonedDoc.body.getAttribute("class") == "dark-theme") {
+                    const darkStyle = clonedDoc.createElement("style");
+                    darkStyle.innerHTML =
+                        "*:not(th,.code-block-decoration.header,code,code span) { color: #000000 !important; } p > code { color: #000000 !important; background-color: #e9e8e8 !important; } ";
+                    clonedDoc.body.appendChild(darkStyle);
+                }
+
                 const style = clonedDoc.createElement("style");
                 style.innerHTML =
-                    "*:not(th) { color: #000000 !important; } img.image { width: unset !important; }";
+                    "img.image { width: unset !important; }";
                 clonedDoc.body.appendChild(style);
             },
+            allowTaint: false,
+            useCORS: true
         },
         margin: [10, 10, 10, 10],
         autoPaging: "text",
