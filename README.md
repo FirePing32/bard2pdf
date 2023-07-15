@@ -1,5 +1,7 @@
 # Bard2PDF
 
+<a href="https://chrome.google.com/webstore/detail/bard2pdf/kobfhggbcmoahneenogbdglhakajipij"> <img src="./chrome.png" style="width:45px;"><br></a>
+
 A powerful Chrome extension that simplifies the process of saving Bard responses as PDFs. With just a single click, you can now transform any engaging conversation or insightful discussion on Bard into a neatly formatted PDF document.
 
 This intuitive extension seamlessly integrates into Chrome, providing a hassle-free experience while capturing and archiving Bard responses.
