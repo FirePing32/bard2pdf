@@ -61,7 +61,7 @@ const findChatContainer = () => {
             });
         }
         chatHistoryContainer =
-            document.getElementsByClassName("chat-history")[0];
+            document.querySelector("infinite-scroller.chat-history");
     }, 500);
 };
 
