@@ -27,7 +27,7 @@ Gulp dumps the bundle files in  `/bin`. Import this directory in `chrome://exten
 
 ## Feedback and Contributions
 
-If you encounter any issues while using Bard2PDF or have suggestions for improvements, please feel free to [open an issue](https://github.com/FirePing32/Bard2PDF/issues) on GitHub. Contributions, bug fixes, and feature enhancements are also welcome.
+If you encounter any issues while using Bard2PDF or have suggestions for improvements, feel free to [open an issue](https://github.com/FirePing32/Bard2PDF/issues). Contributions, bug fixes, and feature enhancements are also welcome.
 
 ## License
 
