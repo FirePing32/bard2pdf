@@ -4,6 +4,7 @@ import { jsPDF } from "jspdf";
 const downloadPDF = (event) => {
     let buttonContainer = event.target;
     buttonContainer.setAttribute("disabled", true);
+    buttonContainer.style.color = "#8c8c8c"
     buttonContainer.innerText = "Generating";
     let parentNode =
         buttonContainer.parentNode.parentNode.parentNode.parentNode.parentNode;
@@ -15,6 +16,7 @@ const downloadPDF = (event) => {
             pdf.output("dataurlnewwindow");
             buttonContainer.innerText = "Download";
             buttonContainer.removeAttribute("disabled");
+            buttonContainer.style.color = "#ffffff";
         },
         html2canvas: {
             onclone: (clonedDoc) => {
