@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Bard2PDF",
     "description": "Save Bard response as PDF",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmHnu393gJHMFdrtAWiOOZKxsPnyxJCWPGCPonD81WO8N8JpTcPyTydQkPhqTN53DL81QdIPNQCsg8s9ZtZNKaNGgdDGdMLUXOLuhg5PmNkoV7SHjWcWjc8PByqpaQeBRi0r9tXrQeZUmXUhhJZoQP7X1CSOW8VTLHvqaR/untaI7dsexaeD0uUOtrmdKAy347VuI0aeeSQ4Pl5cZxP3WuUpjmlL6QyX8kL2le38naojL8xgPoPON/2OMz8Fyd0PEHnx7qbcMYyzT6dr984yrMPvMUnm733UKnOjsf8Ne353cGEhte2JmOFKi13CVobc9iSWWohqg84OO8LbewyUDDQIDAQAB",
     "host_permissions": ["https://bard.google.com/*"],
     "icons": {
